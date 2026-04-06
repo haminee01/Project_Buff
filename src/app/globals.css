@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070709;
+  --foreground: #f3f3f3;
+  --muted: #a2a2ab;
+  --card: rgba(20, 20, 25, 0.68);
+  --gold: #d6b25e;
+  --red: #df2f45;
+  --border: rgba(214, 178, 94, 0.22);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+.buff-bg {
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(214, 178, 94, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(circle at 80% 10%, rgba(223, 47, 69, 0.2), transparent 32%),
+    radial-gradient(
+      circle at 65% 70%,
+      rgba(214, 178, 94, 0.1),
+      transparent 45%
+    ),
+    #070709;
+}
+
+.glass-card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 1px rgba(214, 178, 94, 0.06) inset;
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.buff-glow {
+  box-shadow:
+    0 0 24px rgba(214, 178, 94, 0.25),
+    0 0 60px rgba(223, 47, 69, 0.15);
+}
+
+.scan-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(214, 178, 94, 0.12) 47%,
+    transparent 53%,
+    transparent 100%
+  );
+  background-size: 100% 8px;
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  animation: scan 7s linear infinite;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
