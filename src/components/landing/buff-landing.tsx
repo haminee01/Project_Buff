@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronRight, Radar, Sparkles, Swords, Trophy } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -43,9 +44,12 @@ export default function BuffLanding() {
             <p className="text-xs text-white/60">TACTICAL ANALYTICS PLATFORM</p>
           </div>
         </div>
-        <button className="glass-card rounded-full px-4 py-2 text-sm text-white/90 transition hover:border-amber-300/50 hover:text-amber-200">
+        <Link
+          href="/dashboard"
+          className="glass-card rounded-full px-4 py-2 text-sm text-white/90 transition hover:border-amber-300/50 hover:text-amber-200"
+        >
           대시보드 미리보기
-        </button>
+        </Link>
       </motion.header>
 
       <section className="mx-auto mt-16 grid w-full max-w-6xl gap-10 md:mt-24 md:grid-cols-[1.2fr_0.8fr] md:gap-8">
@@ -68,12 +72,18 @@ export default function BuffLanding() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <button className="buff-glow rounded-full bg-amber-300 px-5 py-3 text-sm font-bold text-black transition hover:bg-amber-200">
+            <Link
+              href="/dashboard"
+              className="buff-glow inline-flex rounded-full bg-amber-300 px-5 py-3 text-sm font-bold text-black transition hover:bg-amber-200"
+            >
               전략 분석 시작
-            </button>
-            <button className="glass-card rounded-full px-5 py-3 text-sm transition hover:border-red-400/60 hover:text-red-200">
+            </Link>
+            <Link
+              href="/agent"
+              className="glass-card inline-flex rounded-full px-5 py-3 text-sm transition hover:border-red-400/60 hover:text-red-200"
+            >
               AI 코치 체험하기
-            </button>
+            </Link>
           </div>
         </motion.div>
 
