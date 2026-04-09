@@ -8,12 +8,14 @@ const features = [
   {
     icon: Sparkles,
     title: "AI Agentic HUD",
-    description: "실시간 전략 가이드를 스트리밍으로 제공하는 몰입형 전술 인터페이스",
+    description:
+      "실시간 전략 가이드를 스트리밍으로 제공하는 몰입형 전술 인터페이스",
   },
   {
     icon: Radar,
     title: "Playstyle Intelligence",
-    description: "플레이 로그를 분석해 승률, 성향, 성장 지점을 시각적으로 리포트",
+    description:
+      "플레이 로그를 분석해 승률, 성향, 성장 지점을 시각적으로 리포트",
   },
   {
     icon: Trophy,
@@ -75,8 +77,8 @@ export default function BuffLanding() {
             승리를 설계하다.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
-            Buff는 AI와 플레이 데이터를 결합해 유저의 실제 게임 스타일을 해석하고,
-            경기 직전에 필요한 전략을 즉시 제안합니다.
+            Buff는 AI와 플레이 데이터를 결합해 유저의 실제 게임 스타일을
+            해석하고, 경기 직전에 필요한 전략을 즉시 제안합니다.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -112,13 +114,15 @@ export default function BuffLanding() {
             <div className="rounded-xl border border-white/10 bg-black/25 p-3">
               <p className="text-xs text-white/50">추천 전술</p>
               <p className="mt-1 text-sm text-white/90">
-                돌진 후 12초 이내 역습 확률 <span className="gold-text">+18%</span>
+                돌진 후 12초 이내 역습 확률{" "}
+                <span className="gold-text">+18%</span>
               </p>
             </div>
             <div className="rounded-xl border border-white/10 bg-black/25 p-3">
               <p className="text-xs text-white/50">플레이 성향</p>
               <p className="mt-1 text-sm text-white/90">
-                당신은 <span className="gold-text">야성적인 공격형</span> 성향입니다.
+                당신은 <span className="gold-text">야성적인 공격형</span>{" "}
+                성향입니다.
               </p>
             </div>
             <div className="rounded-xl border border-white/10 bg-black/25 p-3">
@@ -161,9 +165,12 @@ export default function BuffLanding() {
         transition={{ delay: 0.85, duration: 0.6 }}
       >
         <p>Buff © 2026. Connecting Data, Empowering Players.</p>
-        <button className="inline-flex items-center gap-1 text-amber-200 transition hover:gap-2">
+        <Link
+          href="/project"
+          className="inline-flex items-center gap-1 text-amber-200 transition hover:gap-2"
+        >
           프로젝트 자세히 보기 <ChevronRight className="size-4" />
-        </button>
+        </Link>
       </motion.footer>
     </main>
   );

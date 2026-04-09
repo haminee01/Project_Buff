@@ -11,6 +11,7 @@ import {
   Sparkles,
   User,
 } from "lucide-react";
+import { ReactionLogBar } from "@/components/reactions/reaction-log-bar";
 import { useCallback, useMemo, useState } from "react";
 
 const quickLines = [
@@ -166,6 +167,9 @@ export default function HudChat() {
         </div>
 
         <div className="relative border-t border-white/10 bg-black/20 px-3 py-2 md:px-4">
+          <div className="mb-3">
+            <ReactionLogBar scope="strategy" compact />
+          </div>
           <div className="mb-2 flex flex-wrap gap-2">
             {quickLines.map((q) => (
               <button

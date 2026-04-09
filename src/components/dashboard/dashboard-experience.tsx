@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
 import { Activity, Crosshair, Timer, TrendingUp } from "lucide-react";
 import {
   Area,
@@ -14,6 +13,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { ReactionLogBar } from "@/components/reactions/reaction-log-bar";
 import {
   characterPreference,
   getPlaystyleReport,
@@ -115,12 +115,12 @@ export default function DashboardExperience() {
 
       <div className="grid min-w-0 gap-6 lg:grid-cols-5">
         <motion.div
-          className="glass-card min-w-0 overflow-hidden rounded-2xl p-5 lg:col-span-3"
+          className="glass-card flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl p-5 lg:col-span-3"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.55 }}
         >
-          <div className="mb-4 flex items-end justify-between gap-2">
+          <div className="mb-4 flex shrink-0 items-end justify-between gap-2">
             <div>
               <h2 className="font-[var(--font-display)] text-lg font-bold text-white">
                 주간 퍼포먼스
@@ -128,76 +128,81 @@ export default function DashboardExperience() {
               <p className="text-xs text-white/50">종합 전술 지수 (모의)</p>
             </div>
           </div>
-          <div className="h-64 min-h-64 w-full min-w-0 shrink-0">
-            <ResponsiveContainer
-              width="100%"
-              height="100%"
-              minWidth={0}
-              minHeight={256}
-              debounce={48}
-            >
-              <AreaChart data={weeklyPerformance}>
-                <defs>
-                  <linearGradient id="buffArea" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={gold} stopOpacity={0.5} />
-                    <stop offset="95%" stopColor={gold} stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid
-                  strokeDasharray="4 6"
-                  stroke={muted}
-                  opacity={0.35}
-                />
-                <XAxis
-                  dataKey="day"
-                  tick={{ fill: "#a2a2ab", fontSize: 12 }}
-                  axisLine={{ stroke: "#3b3b44" }}
-                />
-                <YAxis
-                  tick={{ fill: "#a2a2ab", fontSize: 12 }}
-                  axisLine={{ stroke: "#3b3b44" }}
-                  domain={[50, "auto"]}
-                />
-                <Tooltip
-                  contentStyle={{
-                    background: "rgba(12,12,16,0.92)",
-                    border: "1px solid rgba(214,178,94,0.35)",
-                    borderRadius: 12,
-                    color: "#f3f3f3",
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="score"
-                  stroke={gold}
-                  strokeWidth={2}
-                  fillOpacity={1}
-                  fill="url(#buffArea)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
+          <div className="flex min-h-0 flex-1 items-center justify-center">
+            <div className="h-64 min-h-64 w-full min-w-0 max-w-full">
+              <ResponsiveContainer
+                width="100%"
+                height="100%"
+                minWidth={0}
+                minHeight={256}
+                debounce={48}
+              >
+                <AreaChart data={weeklyPerformance}>
+                  <defs>
+                    <linearGradient id="buffArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor={gold} stopOpacity={0.5} />
+                      <stop offset="95%" stopColor={gold} stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid
+                    strokeDasharray="4 6"
+                    stroke={muted}
+                    opacity={0.35}
+                  />
+                  <XAxis
+                    dataKey="day"
+                    tick={{ fill: "#a2a2ab", fontSize: 12 }}
+                    axisLine={{ stroke: "#3b3b44" }}
+                  />
+                  <YAxis
+                    tick={{ fill: "#a2a2ab", fontSize: 12 }}
+                    axisLine={{ stroke: "#3b3b44" }}
+                    domain={[50, "auto"]}
+                  />
+                  <Tooltip
+                    contentStyle={{
+                      background: "rgba(12,12,16,0.92)",
+                      border: "1px solid rgba(214,178,94,0.35)",
+                      borderRadius: 12,
+                      color: "#f3f3f3",
+                    }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="score"
+                    stroke={gold}
+                    strokeWidth={2}
+                    fillOpacity={1}
+                    fill="url(#buffArea)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </motion.div>
 
-        <motion.aside
-          className="glass-card relative min-w-0 overflow-hidden rounded-2xl p-5 lg:col-span-2"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.28, duration: 0.55 }}
-        >
-          <div className="pointer-events-none absolute -right-8 -top-16 size-40 rounded-full bg-amber-400/15 blur-2xl" />
-          <h2 className="font-[var(--font-display)] text-lg font-bold text-white">
-            맞춤 리포트
-          </h2>
-          <p className="gold-text mt-3 text-xl font-semibold">{report.title}</p>
-          <p className="mt-3 text-sm leading-relaxed text-white/65">
-            {report.body}
-          </p>
-          <div className="mt-5 rounded-xl border border-amber-400/20 bg-black/35 px-3 py-2 text-xs text-white/50">
-            다음 단계: Supabase에 세션 로그 적재 → 동일 차트에 실시간 집계 쿼리
-            연결
-          </div>
-        </motion.aside>
+        <aside className="glass-card relative min-w-0 overflow-hidden rounded-2xl p-5 lg:col-span-2">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.55 }}
+            className="contents"
+          >
+            <div className="pointer-events-none absolute -right-8 -top-16 size-40 rounded-full bg-amber-400/15 blur-2xl" />
+            <h2 className="font-[var(--font-display)] text-lg font-bold text-white">
+              맞춤 리포트
+            </h2>
+            <p className="gold-text mt-3 text-xl font-semibold">
+              {report.title}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-white/65">
+              {report.body}
+            </p>
+            <div className="mt-5">
+              <ReactionLogBar scope="report" />
+            </div>
+          </motion.div>
+        </aside>
       </div>
 
       <motion.div

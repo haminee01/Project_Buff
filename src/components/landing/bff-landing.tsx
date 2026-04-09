@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronRight, Radar, Sparkles, Swords, Trophy } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -147,9 +148,12 @@ export default function BuffLanding() {
         transition={{ delay: 0.85, duration: 0.6 }}
       >
         <p>Buff © 2026. Connecting Data, Empowering Players.</p>
-        <button className="inline-flex items-center gap-1 text-amber-200 transition hover:gap-2">
+        <Link
+          href="/project"
+          className="inline-flex items-center gap-1 text-amber-200 transition hover:gap-2"
+        >
           프로젝트 자세히 보기 <ChevronRight className="size-4" />
-        </button>
+        </Link>
       </motion.footer>
     </main>
   );
