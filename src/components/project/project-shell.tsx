@@ -13,26 +13,26 @@ const navItems: Array<{
   {
     key: "overview",
     href: "/project",
-    label: "프로젝트 개요",
-    desc: "프론트엔드/UXUI 전체 구조",
+    label: "Portfolio Overview",
+    desc: "프로젝트 브리프 + 내 역할",
   },
   {
     key: "design-system",
     href: "/design-system",
     label: "Design System",
-    desc: "컴포넌트 문서화",
+    desc: "UI 컴포넌트 가이드",
   },
   {
     key: "case-study",
     href: "/case-study",
     label: "Case Study",
-    desc: "문제-해결-성과",
+    desc: "문제-해결-성과 흐름",
   },
   {
     key: "about-tech",
     href: "/about-tech",
     label: "About Tech",
-    desc: "스택 선택 근거",
+    desc: "선택 이유와 협업 근거",
   },
 ];
 
