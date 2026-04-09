@@ -11,6 +11,8 @@
   "dependencies": {
     "@ai-sdk/google": "^3.0.59",
     "@ai-sdk/react": "^3.0.151",
+    "@supabase/ssr": "^0.10.0",
+    "@supabase/supabase-js": "^2.102.1",
     "ai": "^6.0.149",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",

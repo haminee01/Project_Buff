@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DashboardExperience from "@/components/dashboard/dashboard-experience";
+import { AuthNav } from "@/components/layout/auth-nav";
 import { SiteHeader } from "@/components/layout/site-header";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export default function DashboardPage() {
     <div className="buff-bg relative min-h-screen text-white">
       <div className="scan-line pointer-events-none fixed inset-0 z-0" />
       <div className="relative z-10">
-        <SiteHeader />
+        <SiteHeader rightSlot={<AuthNav />} />
         <DashboardExperience />
       </div>
     </div>

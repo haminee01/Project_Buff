@@ -44,12 +44,20 @@ export default function BuffLanding() {
             <p className="text-xs text-white/60">TACTICAL ANALYTICS PLATFORM</p>
           </div>
         </div>
-        <Link
-          href="/dashboard"
-          className="glass-card rounded-full px-4 py-2 text-sm text-white/90 transition hover:border-amber-300/50 hover:text-amber-200"
-        >
-          대시보드 미리보기
-        </Link>
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <Link
+            href="/login"
+            className="rounded-full px-4 py-2 text-sm text-white/75 transition hover:text-amber-200"
+          >
+            로그인
+          </Link>
+          <Link
+            href="/dashboard"
+            className="glass-card rounded-full px-4 py-2 text-sm text-white/90 transition hover:border-amber-300/50 hover:text-amber-200"
+          >
+            대시보드 미리보기
+          </Link>
+        </div>
       </motion.header>
 
       <section className="mx-auto mt-16 grid w-full max-w-6xl gap-10 md:mt-24 md:grid-cols-[1.2fr_0.8fr] md:gap-8">
