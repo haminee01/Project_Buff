@@ -142,7 +142,7 @@ export default function BuffLanding() {
       </section>
 
       <motion.footer
-        className="mx-auto mt-12 flex w-full max-w-6xl items-center justify-between border-t border-white/10 py-8 text-sm text-white/60"
+        className="mx-auto mt-12 flex w-full max-w-6xl flex-col gap-4 border-t border-white/10 py-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.85, duration: 0.6 }}
@@ -150,7 +150,7 @@ export default function BuffLanding() {
         <p>Buff © 2026. Connecting Data, Empowering Players.</p>
         <Link
           href="/project"
-          className="inline-flex items-center gap-1 text-amber-200 transition hover:gap-2"
+          className="buff-glow inline-flex items-center gap-2 rounded-full border border-amber-300/55 bg-gradient-to-b from-amber-300/25 to-amber-500/10 px-5 py-2.5 text-sm font-semibold text-amber-100 transition hover:border-amber-200/80 hover:text-white"
         >
           프로젝트 자세히 보기 <ChevronRight className="size-4" />
         </Link>

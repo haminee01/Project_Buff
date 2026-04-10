@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import CoachingMinigame from "@/components/project/coaching-minigame";
 import ProjectShell from "@/components/project/project-shell";
 
 const docs = [
@@ -105,6 +106,8 @@ export default function ProjectPage() {
           </div>
         </div>
       </article>
+
+      <CoachingMinigame />
 
       <article className="glass-card rounded-2xl p-5">
         <h2 className="font-[var(--font-display)] text-lg font-bold">
