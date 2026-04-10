@@ -45,7 +45,7 @@ export default function ProjectPage() {
               UXUI 디자이너 포트폴리오
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-white/65">
-              데이터 기반 코칭 경험을 "짧게 읽고 바로 행동하는 화면"으로
+              데이터 기반 코칭 경험을 &quot;짧게 읽고 바로 행동하는 화면&quot;으로
               재설계한 프로젝트입니다. 아래 배지는 본 케이스에서의 제 역할을
               한눈에 보여줍니다.
             </p>
@@ -99,8 +99,8 @@ export default function ProjectPage() {
             </div>
             <div className="mt-3 rounded-xl border border-white/10 bg-black/35 p-4">
               <p className="text-sm leading-relaxed text-white/70">
-                "복잡한 데이터도 한 번의 시선으로 이해하고, 다음 행동까지
-                이어지게 한다."
+                &quot;복잡한 데이터도 한 번의 시선으로 이해하고, 다음 행동까지
+                이어지게 한다.&quot;
               </p>
             </div>
           </div>

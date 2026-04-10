@@ -62,26 +62,22 @@ function recordToEntry(row: Record<string, unknown>): ReactionLogEntry | null {
 }
 
 export function useReactionLog(scope: ReactionScope) {
+  const [supabase] = useState<SupabaseClient | null>(() =>
+    createBrowserClientOptional(),
+  );
   const [entries, setEntries] = useState<ReactionLogEntry[]>([]);
-  const [live, setLive] = useState(false);
-  const [subscribed, setSubscribed] = useState(false);
+  const [subscribed, setSubscribed] = useState(!supabase);
   const [lastError, setLastError] = useState<string | null>(null);
 
   const supabaseRef = useRef<SupabaseClient | null>(null);
 
   useEffect(() => {
-    const supabase = createBrowserClientOptional();
     supabaseRef.current = supabase;
 
     if (!supabase) {
-      setLive(false);
-      setSubscribed(true);
-      setLastError(null);
       return;
     }
 
-    setLive(true);
-    setLastError(null);
     const client: SupabaseClient = supabase;
     let cancelled = false;
 
@@ -142,7 +138,7 @@ export function useReactionLog(scope: ReactionScope) {
       void client.removeChannel(channel);
       supabaseRef.current = null;
     };
-  }, [scope]);
+  }, [scope, supabase]);
 
   const pushReaction = useCallback(
     async (emoji: string, label: string) => {
@@ -195,6 +191,8 @@ export function useReactionLog(scope: ReactionScope) {
     },
     [scope],
   );
+
+  const live = Boolean(supabase);
 
   const statusMessage = !live
     ? "로컬 미리보기 — Supabase를 연결하고 migration을 적용하면 반응이 DB에 저장되고 전 구독자에게 실시간 전달됩니다."

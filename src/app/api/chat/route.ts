@@ -48,7 +48,6 @@ export async function POST(req: Request) {
     process.env.GOOGLE_GENERATIVE_AI_MODEL?.trim() || DEFAULT_GEMINI_MODEL;
 
   if (process.env.NODE_ENV === "development") {
-    // eslint-disable-next-line no-console -- 개발 중 실제 호출 모델 확인용
     console.info("[Buff /api/chat] Gemini model:", modelId);
   }
 

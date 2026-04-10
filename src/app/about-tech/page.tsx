@@ -80,7 +80,7 @@ export default function AboutTechPage() {
             인터랙션은 미적 효과보다 정보 전달의 선명함을 우선합니다.
           </li>
           <li className="rounded-lg border border-white/10 bg-black/25 px-3 py-2">
-            구현 기술은 '디자인을 빠르게 검증하는 도구'로 사용합니다.
+            구현 기술은 &apos;디자인을 빠르게 검증하는 도구&apos;로 사용합니다.
           </li>
           <li className="rounded-lg border border-white/10 bg-black/25 px-3 py-2">
             케이스 스터디는 문제, 결정, 결과를 같은 형식으로 유지합니다.
